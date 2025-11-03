@@ -1,21 +1,28 @@
 package com.lab.gateway.lab_gateway.infraestructure.apiFactory;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Component;
 
 import com.lab.gateway.lab_gateway.infraestructure.configuration.ApiConfiguration;
-
+@Component
 public class LaboratoryFactory {
-        @Autowired
-    private static  ApiConfiguration apiConfig;
-    
-    private static final String LABORATORY_API = apiConfig.getApiLaboratory()+"/api/laboratory/";
+     private final String baseUrl;
 
-    public static String CreateLaboratory = LABORATORY_API + "create";
-    public static String UpdateLaboratory = LABORATORY_API + "update";
-    public static String DeleteLaboratory = LABORATORY_API + "delete";
-    public static String GetAllLaboratories = LABORATORY_API + "get-all";
-    public static String GetLaboratoryById = LABORATORY_API + "get-by-id";
-    public static String GetLaboratoriesBySpecialization = LABORATORY_API + "get-by-specialization";    
+    public final String createLaboratory;
+    public final String updateLaboratory;
+    public final String deleteLaboratory;
+    public final String getAllLaboratories;
+    public final String getLaboratoryById;
+    public final String getLaboratoriesBySpecialization;
 
+    public LaboratoryFactory(ApiConfiguration apiConfig) {
+        this.baseUrl = apiConfig.getApiLaboratory() + "/api/laboratory/";
+        this.createLaboratory = baseUrl + "create";
+        this.updateLaboratory = baseUrl + "update/{id}";
+        this.deleteLaboratory = baseUrl + "delete/{id}";
+        this.getAllLaboratories = baseUrl + "get-all";
+        this.getLaboratoryById = baseUrl + "get-by-id/{id}";
+        this.getLaboratoriesBySpecialization = baseUrl + "get-by-specialization/{specialization}";
+    }
 
 }

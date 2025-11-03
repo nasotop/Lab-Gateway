@@ -6,15 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class UserDto {
+public class TestTypeDto {
+    
     private Long id;
     private String name;
-
-    private String email;
-
-    private String role;
-    private String password;
+    private String code;
+    private String specialization;
+    private String sampleType;
 }

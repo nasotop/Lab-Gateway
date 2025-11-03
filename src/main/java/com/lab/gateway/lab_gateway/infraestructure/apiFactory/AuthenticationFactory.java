@@ -20,9 +20,9 @@ public class AuthenticationFactory {
         this.baseUrl = apiConfig.getApiAuthentication() + "/api/user/";
         this.login = baseUrl + "login";
         this.register = baseUrl + "register";
-        this.updateUser = baseUrl + "update";
-        this.deleteUser = baseUrl + "delete";
+        this.updateUser = baseUrl + "update/{id}";
+        this.deleteUser = baseUrl + "delete/{id}";
         this.getAllUsers = baseUrl + "get-all-users";
-        this.getUserById = baseUrl + "get-user-by-id";
+        this.getUserById = baseUrl + "get-user-by-id/{id}";
     }
 }
