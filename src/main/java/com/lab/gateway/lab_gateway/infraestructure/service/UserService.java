@@ -73,6 +73,25 @@ public class UserService {
 
     }
 
+    public ResultDto<UserDto[]> getUsersByRole(String role) {
+
+        try {
+            Map<String, Object> params = Map.of("role", role);
+
+            return api.invokeBlocking(
+                    HttpMethod.GET,
+                    routes.getUserByRole,
+                    params,
+                    null,
+                    null,
+                    null,
+                    TypeRefs.resultOf(UserDto[].class));
+        } catch (Exception e) {
+            return ResultDto.fail("Error fetching user: " + e.getMessage());
+        }
+
+    }
+
     public ResultDto<UserDto> getUserById(Long id) {
         try {
             Map<String, Object> params = Map.of("id", id);

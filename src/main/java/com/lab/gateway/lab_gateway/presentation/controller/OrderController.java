@@ -15,9 +15,10 @@ import com.lab.gateway.lab_gateway.domain.dataTransferObject.ResultDto;
 import com.lab.gateway.lab_gateway.infraestructure.service.OrderService;
 import com.lab.gateway.lab_gateway.presentation.dataTransferObject.OrderDto;
 
+import jakarta.validation.Valid;
+
 @RestController
-@RequestMapping("/api/order")
-@CrossOrigin(origins = "*")
+@RequestMapping("/order")
 public class OrderController {
     
     @Autowired
@@ -34,12 +35,12 @@ public class OrderController {
     }
 
     @PostMapping("/create")
-    public ResultDto<OrderDto> createOrder(@RequestBody OrderDto dto) {
+    public ResultDto<OrderDto> createOrder(@Valid @RequestBody OrderDto dto) {
         return orderService.createOrder(dto);
     }
 
     @PostMapping("/update")
-    public ResultDto<OrderDto> updateOrder(@RequestBody OrderDto dto) {
+    public ResultDto<OrderDto> updateOrder(@Valid @RequestBody OrderDto dto) {
         return orderService.updateOrder(dto.getId(), dto);
     }
 

@@ -13,6 +13,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.lab.gateway.lab_gateway.presentation.dataTransferObject.TestResultDto;
+
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
@@ -96,4 +98,6 @@ public class ApiClient {
             return status;
         }
     }
+
+ 
 }

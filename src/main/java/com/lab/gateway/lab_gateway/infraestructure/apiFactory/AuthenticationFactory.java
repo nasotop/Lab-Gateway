@@ -11,18 +11,22 @@ public class AuthenticationFactory {
 
     public final String login;
     public final String register;
+    public final String recovery;
     public final String updateUser;
     public final String deleteUser;
     public final String getAllUsers;
     public final String getUserById;
+    public final String getUserByRole;
 
     public AuthenticationFactory(ApiConfiguration apiConfig) {
         this.baseUrl = apiConfig.getApiAuthentication() + "/api/user/";
         this.login = baseUrl + "login";
         this.register = baseUrl + "register";
+        this.recovery = baseUrl + "recovery";
         this.updateUser = baseUrl + "update/{id}";
         this.deleteUser = baseUrl + "delete/{id}";
         this.getAllUsers = baseUrl + "get-all-users";
         this.getUserById = baseUrl + "get-user-by-id/{id}";
+        this.getUserByRole = baseUrl + "get-user-by-role/{role}";
     }
 }

@@ -11,6 +11,8 @@ public class ApiConfiguration {
     @Value("${enviroment.api-authentication}")
     private String apiAuthentication;
 
+    @Value("${enviroment.api-test-result}")
+    private String apiTestResult;
     
     public String getApiLaboratory() {
         return apiLaboratory;
@@ -18,5 +20,8 @@ public class ApiConfiguration {
 
     public String getApiAuthentication() {
         return apiAuthentication;
+    }
+    public String getApiTestResult() {
+        return apiTestResult;
     }
 }

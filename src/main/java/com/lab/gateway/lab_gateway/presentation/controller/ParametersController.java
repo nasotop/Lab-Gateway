@@ -15,8 +15,7 @@ import com.lab.gateway.lab_gateway.infraestructure.service.ParametersService;
 import com.lab.gateway.lab_gateway.presentation.dataTransferObject.ParameterDto;
 
 @RestController
-@RequestMapping("/api/parameter")
-@CrossOrigin
+@RequestMapping("/parameter")
 public class ParametersController {
     
     @Autowired

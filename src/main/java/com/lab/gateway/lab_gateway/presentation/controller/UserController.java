@@ -15,9 +15,10 @@ import com.lab.gateway.lab_gateway.domain.dataTransferObject.ResultDto;
 import com.lab.gateway.lab_gateway.infraestructure.service.UserService;
 import com.lab.gateway.lab_gateway.presentation.dataTransferObject.UserDto;
 
+import jakarta.validation.Valid;
+
 @RestController
-@RequestMapping("/api/user")
-@CrossOrigin(origins = "*")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -32,8 +33,13 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/get-by-role/{role}")
+    public ResultDto<UserDto[]> getUserByRole(@PathVariable String role) {
+        return userService.getUsersByRole(role);
+    }
+
     @PostMapping("/update")
-    public ResultDto<UserDto> updateUser(@RequestBody UserDto userDto) {
+    public ResultDto<UserDto> updateUser(@Valid @RequestBody UserDto userDto) {
         return userService.updateUser(userDto);
     }
 

@@ -17,7 +17,7 @@ public class TestTypeFactory {
     public final String getTestTypesBySpecialization;
 
     public TestTypeFactory(ApiConfiguration apiConfig) {
-        this.baseUrl = apiConfig.getApiLaboratory() + "/api/laboratory//test-type/";
+        this.baseUrl = apiConfig.getApiLaboratory() + "/api/laboratory/test-type/";
         this.createTestType = baseUrl + "create";
         this.updateTestType = baseUrl + "update/{id}";
         this.deleteTestType = baseUrl + "delete/{id}";
